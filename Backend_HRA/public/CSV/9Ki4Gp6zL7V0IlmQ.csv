@@ -1,0 +1,1 @@
+transaction_id,property_id,user_id,landlord_id,tenant_name,tenant_address,tenant_phone,landlord_address,landlord_phone,landlord_name,acc_holder_name,acc_number,bank_name,bank_ifsc,mode_of_payment,date,rent_month,rent_amount,remarks,receipt,rent_receipt

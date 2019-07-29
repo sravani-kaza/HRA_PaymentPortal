@@ -1,0 +1,175 @@
+Use Case 1:
+
+Front end: 
+1.	Create a form with below fields 
+a.	Property name (alphanumeric)
+b.	Door number ( alphanumeric and dash slash)
+c.	Society (alphanumeric)
+d.	Area (alphanumeric)
+e.	State (Drop down with all states)
+f.	City   (Drop down with all cities according to state selected)
+g.	Pin  (valid pin code)
+h.	Rent Amount (number)
+i.	Rent Deposit Amount (number)
+j.	Rent Maintenance Amount (number)
+k.	Staying Since (Year and month and should not be future month and year)
+l.	Landlord Details:
+i.	Landlord name (alpha)
+ii.	Account Holder Name (alpha)
+iii.	Bank Name  (alpha)
+iv.	Account number (Number of digits & Account number start with should match with predefined set)
+v.	Retype Account number
+vi.	IFSC Code (IFSC should match with selected bank)
+vii.	Landlord City
+viii.	Landlord State
+m.	Maintenance Account Details:
+i.	Maintatance name
+ii.	Account Holder Name
+iii.	Bank Name
+iv.	Account number (Number of digits & Account number start with should match with predefined set)
+v.	Retype Account number
+vi.	IFSC Code (IFSC should match with selected bank)
+n.	Attaching landlord PAN
+i.	Enter PAN Number [PAN Regular expression validation]
+ii.	Upload PAN Document [Allow only pdf,jpg,jpeg,png]
+o.	Attaching Rent Agreement
+i.	Valid Upto [Date] (Should be future date)
+ii.	Upload Doc  [Allow only pdf,jpg,jpeg,png]
+
+
+
+
+Backend:
+1.	API to create/update/delete/read the above forms
+2.	Create small api for each section like
+a.	Adding only property details
+b.	Adding maintenance details
+c.	Attaching PAN to property
+d.	Attaching Rent agreement to property
+
+
+IFSC validation :
+"Allahabad Bank"=>"ALLA","Andhra Bank"=>"ANDB","Axis Bank"=>"UTIB","Bank of Baroda"=>"BARB","Bank of India"=>"BKID","Bank of Maharashtra"=>"MAHB","Bank of Punjab"=>"PUNB","Bank of Rajasthan"=>"BRAJ","BNP Paribas"=>"BNPA","Canara Bank"=>"CNRB","Central Bank of India"=>"CBIN","Centurion Bank"=>"CENT","Corporation Bank"=>"CORP","Citi Bank"=>"CITI","City Union Bank"=>"CIUB","Catholic Syrian Bank"=>"CSBK","DCB Bank"=>"DCBL","Development Credit Bank"=>"DCBL","Deutsche Bank AG"=>"DEUT","Dhanlakshmi Bank"=>"DLXB","Dena Bank"=>"BKDN","Federal Bank"=>"FDRL","HDFC Bank"=>"HDFC","HSBC Bank"=>"HSBC","ICICI Bank"=>"ICIC","IDBI Bank"=>"IBKL","Indian Bank"=>"IDIB","Indian Overseas Bank"=>"IOBA","IndusInd Bank"=>"INDB","ING Vysya Bank"=>"VYSA","Jammu &amp; Kashmir Bank"=>"JAKA","Karnataka Bank"=>"KARB","Kotak Mahindra Bank"=>"KKBK","Karur Vysya Bank"=>"KVBL","Lakshmi Vilas Bank"=>"LAVB","NKGSB Co-operative Bank Ltd"=>"NKGS","Oriental Bank of Commerce"=>"ORBC","PunjabSind Bank"=>"PSIB","Punjab National Bank"=>"PUNB","Standard Chartered Bank"=>"SCBL","State Bank of India"=>"SBIN","State Bank of Indore"=>"SBIN","State Bank of Mysore"=>"SBIN","State Bank of Patiala"=>"SBIN","State Bank of Travancore"=>"SBIN","State Bank of Bikaner and Jaipur"=>"SBIN","State Bank of Hyderabad"=>"SBIN","State Bank of Saurashtra"=>"SBIN","South Indian Bank"=>"SIBL","Syndicate Bank"=>"SYNB","UCO Bank"=>"UCBA","UTI Bank"=>"UTIB","Union Bank of India"=>"UBIN","United Bank of India"=>"UTBI","United Western Bank"=>"UWBK","Vijaya Bank"=>"VIJB","Yes Bank"=>"YESB"
+
+
+Account number start with :
+If array is empty no restriction on start with number
+"Andhra Bank"						  => array(15), 
+"Allahabad Bank"					  => array(11), 
+"Axis Bank"							  => array(15), 
+"Bank of Baroda"					  => array(14), 
+"Bank of India"						  => array(15), 
+"Bank of Maharashtra"				  => array(11), 
+"Bank of Punjab"                      => array(),   
+"Bank of Rajasthan"                   => array(),   
+"BNP Paribas"                         => array(),   
+"Canara Bank"                         => array(13), 
+"Central Bank of India"				  => array(10), 
+"Centurion Bank"                      => array(),   
+"Corporation Bank"					  => array(15), 
+"Citi Bank"							  => array(), //Removed on request for zenify 
+"City Union Bank"                     => array(),   
+"Catholic Syrian Bank"				  => array(18), 
+"DCB Bank"                            => array(),   
+"Development Credit Bank"             => array(),   
+"Deutsche Bank"                       => array(),   
+"Dhanlakshmi Bank"					  => array(16), 
+"Dena Bank"							  => array(12), 
+"Federal Bank"						  => array(14), 
+"HDFC Bank"							  => array(14), 
+"HSBC Bank"                           => array(),   
+"ICICI Bank"                          => array(12), 
+"IDBI Bank"                           => array(13,14,15,16), 
+"Indian Bank"                         => array(9,10,11,12,13,14,15,16,17),
+"Indian Overseas Bank"                => array(15), 
+"IndusInd Bank"                       => array(13), 
+"ING Vysya Bank"                      => array(),   
+"Jammu &amp; Kashmir Bank"			  => array(16), 
+"Karnataka Bank"                      => array(16), 
+"Kotak Mahindra Bank"                 => array(10,14), 
+"Karur Vysya Bank"                    => array(),   
+"Lakshmi Vilas Bank"                  => array(),
+"NKGSB Co-operative Bank Ltd"         => array(), 
+"Oriental Bank of Commerce"			  => array(14), 
+"Punjab National Bank"				  => array(16), 
+"PunjabSind Bank"  					  => array(14), 
+"Standard Chartered Bank"             => array(11), 
+"State Bank of India"                 => array(), //11 updated on 20th oct 2017 
+"State Bank of Indore"                => array(11), 
+"State Bank of Mysore"                => array(),   
+"State Bank of Patiala"               => array(),   
+"State Bank of Travancore"            => array(11), 
+"State Bank of Bikaner and Jaipur"    => array(11), 
+"State Bank of Hyderabad"             => array(11), 
+"State Bank of Saurashtra"            => array(11), 
+"South Indian Bank"                   => array(16), 
+"Syndicate Bank"                      => array(14), 
+"Tamilnadu Mercantile Bank"           => array(6,7,8,9,10,11,12,13,14,15), 		
+"Union Bank of India"				  => array(15), 
+"UCO Bank"							  => array(14), 
+"Vijaya Bank"						  => array(15), 
+"Yes Bank"							  => array(15)
+
+
+
+Number of digit in account number:
+If array is empty no restriction on number of digits in account number
+
+"Andhra Bank"						  => array(),
+"Allahabad Bank"					  => array(),
+"Axis Bank"							  => array(),
+"Bank of Baroda"					  => array(),
+"Bank of India"						  => array(),
+"Bank of Maharashtra"				  => array(),
+"Bank of Punjab"                      => array(),
+"Bank of Rajasthan"                   => array(),
+"BNP Paribas"                         => array(),
+"Canara Bank"                         => array(),
+"Central Bank of India"				  => array(),
+"Centurion Bank"                      => array(),
+"Corporation Bank"					  => array(),
+"Citi Bank"							  => array(),
+"City Union Bank"                     => array(),
+"Catholic Syrian Bank"				  => array(),
+"DCB Bank"                            => array(),
+"Development Credit Bank"             => array(),
+"Deutsche Bank"                       => array(),
+"Dhanlakshmi Bank"					  => array(),
+"Dena Bank"							  => array(),
+"Federal Bank"						  => array(),
+"HDFC Bank"							  => array(),
+"HSBC Bank"                           => array(),
+"ICICI Bank"                          => array(),
+"IDBI Bank"                           => array(),
+"Indian Bank"                         => array(),
+"Indian Overseas Bank"                => array(),
+"IndusInd Bank"                       => array(),
+"ING Vysya Bank"                      => array(),
+"Jammu &amp; Kashmir Bank"			  => array(),
+"Karnataka Bank"                      => array(),
+"Kotak Mahindra Bank"                 => array(),
+"Karur Vysya Bank"                    => array(),
+"Lakshmi Vilas Bank"                  => array(),
+"NKGSB Co-operative Bank Ltd"         => array(),
+"Oriental Bank of Commerce"			  => array(),
+"Punjab National Bank"				  => array(),
+"PunjabSind Bank"  					  => array(),
+"Standard Chartered Bank"             => array(),
+"State Bank of India"                 => array(), //1,2,3 updated on 20th oct 2017
+"State Bank of Indore"                => array(53,63),
+"State Bank of Mysore"                => array(),
+"State Bank of Patiala"               => array(),
+"State Bank of Travancore"            => array(57,67),
+"State Bank of Bikaner and Jaipur"    => array(),
+"State Bank of Hyderabad"             => array(5,6),
+"State Bank of Saurashtra"            => array(56,66),
+"South Indian Bank"                   => array(),
+"Syndicate Bank"                      => array(),
+"Tamilnadu Mercantile Bank"           => array(),		
+"Union Bank of India"				  => array(),
+"UCO Bank"							  => array(),
+"Vijaya Bank"						  => array(),
+"Yes Bank"							  => array()
+
+ 
+
